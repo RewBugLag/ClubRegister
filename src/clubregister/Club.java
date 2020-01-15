@@ -14,20 +14,8 @@ public class Club {
         this.shortName = shortName;
         this.maximum = maximum;
         this.status = Status.OPEN;
-        //if (maximum <= 0) {
-        //    this.maximum = 10;
-        //    this.status = Status.CLOSE;
-        //}
         this.members = new Student[this.maximum];
     }
-
-    // public boolean subscribe(Student student) {
-    //     if (status == Status.CLOSE) {
-    //         return false;
-    //     }
-    //     members[count++] = new Student(student);
-    //     return true;
-    // }
 
     public boolean subscribe(long studentId, String firstName, String lastName, String faculty) {
         if (status == Status.CLOSE) {
@@ -60,8 +48,6 @@ public class Club {
     }
 
     public void listAllMember() {
-        System.out.println(members);
-        System.out.println(count);
         for (int i = 0; i < count; i++) {
             System.out.println(members[i]);
         }

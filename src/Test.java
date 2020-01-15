@@ -14,9 +14,6 @@ public class Test {
 
     private static Scanner sc = new Scanner(System.in);
     private static Club c1;
-    // private static String clubName;
-    // private static String shortName;
-    // private static int maximum;
 
     public static void main(String[] args) {
         int choice = 0;
@@ -86,10 +83,6 @@ public class Test {
         }
         
         c1 = new Club(clubName, shortName, maximum);
-
-        System.out.println(clubName);
-        System.out.println(shortName);
-        System.out.println(maximum);
     }
 
     public static void join() {
@@ -118,7 +111,6 @@ public class Test {
         if (c1 != null) {
             c1.unsubscribe(studentId);
         }
-        
     }
 
     public static void edit() {
