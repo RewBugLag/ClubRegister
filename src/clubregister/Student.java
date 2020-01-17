@@ -44,12 +44,13 @@ public class Student {
         if(this.faculty != null)this.faculty = faculty;
     }
 
-    public boolean equals(Student st) {
-        if (st == null) {
-            return false;
-        }
-        return (this.studentId == st.studentId) ? true : false;
-    }
+    // there is no object comparison.
+    // public boolean equals(Student st) {
+    //     if (st == null) {
+    //         return false;
+    //     }
+    //     return (this.studentId == st.studentId) ? true : false;
+    // }
 
     public long getStudentId() {
         return studentId;

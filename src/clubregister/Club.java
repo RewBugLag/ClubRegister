@@ -6,6 +6,7 @@ public class Club {
     private String shortName;
     private int count;
     private int maximum;
+    private int index;
     private Status status;
     private Student[] members;
 
@@ -18,10 +19,11 @@ public class Club {
     }
 
     public boolean subscribe(long studentId, String firstName, String lastName, String faculty) {
-        if (status == Status.CLOSE) {
+        if (status == Status.CLOSE || findMember(studentId)) {
             return false;
         }
         members[count++] = new Student(studentId, firstName, lastName, faculty);
+        isFull();
         return true;
     }
 
@@ -38,12 +40,33 @@ public class Club {
         return false;
     }
 
+    public boolean editInformation(long studentId, String firstName, String lastName, String faculty) {
+        findMember(studentId);
+        if (index == -1) {
+            return false;
+        }
+        members[index].setFirstName(firstName);
+        members[index].setLastName(lastName);
+        members[index].setFaculty(faculty);
+        return true;
+    }
+
+    public boolean isFull() {
+        if (count == maximum) {
+            status = Status.CLOSE;
+            return true;
+        }
+        return false;
+    }
+
     public boolean findMember(long studentId) {
         for (int i = 0; i < count; i++) {
             if (studentId == members[i].getStudentId()) {
+                index = i;
                 return true;
             }
         }
+        index = -1;
         return false;
     }
 
@@ -53,7 +76,8 @@ public class Club {
         }
     }
 
+    @Override
+    public String toString() {
+        return "{ clubName: " + clubName + ", shortName: " + shortName + ", status: " + status + " }";
+    }
 }
-
-// implement register
-// editer()
