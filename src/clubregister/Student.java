@@ -23,14 +23,6 @@ public class Student {
         this.faculty = faculty;
     }
 
-    //Constrcutor create obj
-    public Student(Student st){
-        this.studentId = st.studentId;
-        this.firstName = st.firstName;
-        this.lastName = st.lastName;
-        this.faculty = st.faculty;
-    }
-
     //Edit
     public void setFirstName(String firstName) {
         if(this.firstName != null)this.firstName = firstName;
@@ -43,14 +35,6 @@ public class Student {
     public void setFaculty(String faculty) {
         if(this.faculty != null)this.faculty = faculty;
     }
-
-    // there is no object comparison.
-    // public boolean equals(Student st) {
-    //     if (st == null) {
-    //         return false;
-    //     }
-    //     return (this.studentId == st.studentId) ? true : false;
-    // }
 
     public long getStudentId() {
         return studentId;

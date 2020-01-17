@@ -197,7 +197,6 @@ public class Test {
         if (c1 == null) {
             System.out.println("Sorry, there is no club to show here.");
             return false;
-            
         }
         c1.listAllMember();
         return true;
