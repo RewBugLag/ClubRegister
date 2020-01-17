@@ -193,10 +193,14 @@ public class Test {
         return true;
     }
 
-    public static void list() {
-        if (c1 != null) {
-            c1.listAllMember();
+    public static boolean list() {
+        if (c1 == null) {
+            System.out.println("Sorry, there is no club to show here.");
+            return false;
+            
         }
+        c1.listAllMember();
+        return true;
     }
 
     public static int inputInt() {
