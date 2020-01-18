@@ -31,13 +31,16 @@ public class Club {
         for (int i = 0; i < count; i++) {
             if (studentId == members[i].getStudentId()) {
                 for (int j = i; j < count; j++) {
-                    if (j == count - 1) {
+                    try {
+                        members[j] = members[j+1];
+                    } catch (IndexOutOfBoundsException e) {
                         members[j] = null;
                         count --;
                         return true;
                     }
-                    members[j] = members[j+1];
                 }
+                count--;
+                return true;
             }
         }
         return false;
