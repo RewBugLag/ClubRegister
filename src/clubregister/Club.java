@@ -31,18 +31,20 @@ public class Club {
         for (int i = 0; i < count; i++) {
             if (studentId == members[i].getStudentId()) {
                 for (int j = i; j < count; j++) {
+                    if (j == count - 1) {
+                        members[j] = null;
+                        count --;
+                        return true;
+                    }
                     members[j] = members[j+1];
                 }
-                count--;
-                return true;
             }
         }
         return false;
     }
 
     public boolean editInformation(long studentId, String firstName, String lastName, String faculty) {
-        findMember(studentId);
-        if (index == -1) {
+        if (!findMember(studentId)) {
             return false;
         }
         members[index].setFirstName(firstName);
@@ -52,11 +54,9 @@ public class Club {
     }
 
     public boolean isFull() {
-        if (count == maximum) {
-            status = Status.CLOSE;
-            return true;
-        }
-        return false;
+        boolean full = (count == maximum) ? true : false;
+        status = (full) ? Status.CLOSE : Status.OPEN;
+        return full;
     }
 
     public boolean findMember(long studentId) {
